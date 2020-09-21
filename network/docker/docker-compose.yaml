@@ -48,9 +48,9 @@ services:
     networks:
       - newland
     extra_hosts:
-      - "peer0.org1.example.com:192.168.204.15"
-      - "peer1.org1.example.com:192.168.204.14"
-      - "peer2.org1.example.com:192.168.204.15"
+      - "peer0.org1.example.com:42.159.146.14"
+      - "peer1.org1.example.com:42.159.149.143"
+      - "peer2.org1.example.com:42.159.146.14"
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
@@ -91,9 +91,9 @@ services:
     networks:
       - newland
     extra_hosts:
-      - "orderer.example.com:192.168.204.15"
-      - "peer1.org1.example.com:192.168.204.14"
-      - "peer2.org1.example.com:192.168.204.15"
+      - "orderer.example.com:42.159.146.14"
+      - "peer1.org1.example.com:42.159.149.143"
+      - "peer2.org1.example.com:42.159.146.14"
 
   peer2.org1.example.com:
     container_name: peer2.org1.example.com
@@ -134,6 +134,6 @@ services:
     networks:
       - newland
     extra_hosts:
-      - "orderer.example.com:192.168.204.15"
-      - "peer0.org1.example.com:192.168.204.15"
-      - "peer1.org1.example.com:192.168.204.14"
+      - "orderer.example.com:42.159.146.14"
+      - "peer0.org1.example.com:42.159.146.14"
+      - "peer1.org1.example.com:42.159.149.143"

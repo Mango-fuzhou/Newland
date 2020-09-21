@@ -52,6 +52,6 @@ services:
     networks:
       - newland
     extra_hosts:
-      - "orderer.example.com:192.168.204.15"
-      - "peer0.org1.example.com:192.168.204.15"
-      - "peer2.org1.example.com:192.168.204.15"
+      - "orderer.example.com:42.159.146.14"
+      - "peer0.org1.example.com:42.159.146.14"
+      - "peer2.org1.example.com:42.159.146.14"

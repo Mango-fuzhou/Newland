@@ -9,7 +9,7 @@ const { Gateway, Wallets } = require('fabric-network');
 const fs = require('fs');
 const path = require('path');
 
-const ccpPath = path.resolve(__dirname, '../../network/organizations/peerOrganizations/org1.example.com/connection-peer0-org1.json');
+const ccpPath = path.resolve(__dirname, '../network/organizations/peerOrganizations/org1.example.com/connection-peer0-org1.json');
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
 
