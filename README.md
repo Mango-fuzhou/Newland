@@ -10,6 +10,7 @@
 5、机器A执行./network.sh deployCC -ccn newland -ccv 1 -cci Init -ccl go -ccp ../chaincode/newland  安装智能合约
 
 6、进入NewLand/scripts目录，分别执行
+
     node enrollAdmin
     
     node registerUser
@@ -27,4 +28,3 @@
     192.168.204.15 orderer.example.com
     192.168.204.15 ca.example.com
     192.168.204.15 ca.org1.example.com
-~                                       
