@@ -11,8 +11,11 @@
 
 6、进入NewLand/scripts目录，分别执行
     node enrollAdmin
+    
     node registerUser
+    
     node invoke
+    
     node query
     测试智能合约
 
