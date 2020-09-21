@@ -9,7 +9,7 @@
 
 5、机器A执行./network.sh deployCC -ccn newland -ccv 1 -cci Init -ccl go -ccp ../chaincode/newland  安装智能合约
 
-6、进入NewLand/scripts目录，分别执行
+6、进入NewLand/scripts目录，分别执行以下命令测试智能合约：
 
     node enrollAdmin
     
@@ -18,7 +18,6 @@
     node invoke
     
     node query
-    测试智能合约
 
 注：需要配置/etc/hosts，指定AB两台机器的IP和自定义域名，参考如下:
 
