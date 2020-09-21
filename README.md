@@ -1,22 +1,13 @@
 ## 搭建单组织三节点的分布式Fabric网络
 1、git clone 本项目
-
 2、进入Newland/network，执行./network up -ca 启动机器A
-
 3、拷贝network目录到机器B，进入机器B的network目录，执行 docker-compose -f docker/docker-compose-peer.yaml up -d
-
 4、机器A执行 ./network createChannel 创建通道
-
 5、机器A执行./network.sh deployCC -ccn newland -ccv 1 -cci Init -ccl go -ccp ../chaincode/newland  安装智能合约
-
 6、进入NewLand/scripts目录，分别执行
-
-    node enrollAdmin
-    
-    node registerUser
-    
-    node invoke
-    
+    node enrollAdmin   
+    node registerUser    
+    node invoke 
     node query
     测试智能合约
 
