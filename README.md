@@ -7,17 +7,21 @@
     
     修改192.168.204.14为B机的外网地址
     
-2、进入Newland/network，执行./network up -ca 启动机器A
+2、进入Newland/network，执行以下命令启动A机器网络
 
-3、拷贝network目录到机器B，进入机器B的network目录
-    
-    执行 docker-compose -f docker/docker-compose-peer.yaml up -d
+    ./network up -ca
 
-4、机器A执行 ./network createChannel 创建通道
+3、拷贝network目录到机器B，进入机器B的network目录执行以下命令，启动B机器网络
 
-5、机器A执行./network.sh deployCC -ccn newland -ccv 1 -cci Init -ccl go -ccp ../chaincode/newland
-    
-    安装智能合约
+    docker-compose -f docker/docker-compose-peer.yaml up -d
+
+4、机器A执行以下命令创建通道
+
+    ./network createChannel
+
+5、机器A执行以下命令安装智能合约
+
+    ./network.sh deployCC -ccn newland -ccv 1 -cci Init -ccl go -ccp ../chaincode/newland
 
 6、进入NewLand/scripts目录，分别执行以下命令测试智能合约：
 
