@@ -1,5 +1,5 @@
 ## 搭建单组织三节点的分布式Fabric网络
-1、git clone 本项目
+1、git clone 本项目，进入Newland/network目录，执行bootstrap.sh下载docker镜像
 
 2、进入Newland/network/docker目录，打开docker-compose.yaml和docker-comose-peer.yaml文件
     

@@ -61,7 +61,7 @@ function createOrg() {
 
   infoln "Generate the peer${PEER}-tls certificates"
   set -x
-  fabric-ca-client enroll -u https://peer${PEER}:peer${PEER}pw@ca.org1.example.com:7054 --caname ca.org1.example.com -M ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer${PEER}.org1.example.com/tls --enrollment.profile tls --csr.hosts peer${PEER}.org1.example.com --csr.hosts localhost --tls.certfiles ${PWD}/organizations/fabric-ca/org1/tls-cert.pem
+  fabric-ca-client enroll -u https://peer${PEER}:peer${PEER}pw@ca.org1.example.com:7054 --caname ca.org1.example.com -M ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer${PEER}.org1.example.com/tls --enrollment.profile tls --csr.hosts peer${PEER}.org1.example.com --csr.hosts ca.org1.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/org1/tls-cert.pem
   { set +x; } 2>/dev/null
 
   cp ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer${PEER}.org1.example.com/tls/tlscacerts/* ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer${PEER}.org1.example.com/tls/ca.crt
@@ -144,14 +144,14 @@ function createOrderer() {
 
   infoln "Generate the orderer msp"
   set -x
-  fabric-ca-client enroll -u https://orderer:ordererpw@ca.example.com:9054 --caname ca.example.com -M ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp --csr.hosts orderer.example.com --csr.hosts localhost --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
+  fabric-ca-client enroll -u https://orderer:ordererpw@ca.example.com:9054 --caname ca.example.com -M ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp --csr.hosts orderer.example.com --csr.hosts ca.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
   { set +x; } 2>/dev/null
 
   cp ${PWD}/organizations/ordererOrganizations/example.com/msp/config.yaml ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/config.yaml
 
   infoln "Generate the orderer-tls certificates"
   set -x
-  fabric-ca-client enroll -u https://orderer:ordererpw@ca.example.com:9054 --caname ca.example.com -M ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls --enrollment.profile tls --csr.hosts orderer.example.com --csr.hosts localhost --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
+  fabric-ca-client enroll -u https://orderer:ordererpw@ca.example.com:9054 --caname ca.example.com -M ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls --enrollment.profile tls --csr.hosts orderer.example.com --csr.hosts ca.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
   { set +x; } 2>/dev/null
 
   cp ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/tlscacerts/* ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt
