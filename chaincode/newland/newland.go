@@ -109,7 +109,9 @@ func getHistory(stub shim.ChaincodeStubInterface, args []string) (string, error)
 		if queryResponse.IsDelete {
 			buffer.WriteString("null")
 		} else {
+			buffer.WriteString("\"")
 			buffer.WriteString(string(queryResponse.Value))
+			buffer.WriteString("\"")
 		}
 
 		buffer.WriteString(", \"Timestamp\":")

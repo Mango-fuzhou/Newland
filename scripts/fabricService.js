@@ -115,7 +115,6 @@ class fabricService{
             // Create a new file system based wallet for managing identities.
             const walletPath = path.join(process.cwd(), 'wallet');
             const wallet = await Wallets.newFileSystemWallet(walletPath);
-            console.log(`Wallet path: ${walletPath}`);
 
             // Check to see if we've already enrolled the user.
             const identity = await wallet.get('appUser');
@@ -137,7 +136,6 @@ class fabricService{
 
             // Submit the specified transaction.
             await contract.submitTransaction('SetData', key, value);
-            console.log('Transaction has been submitted');
 
             // Disconnect from the gateway.
             await gateway.disconnect();
@@ -153,7 +151,6 @@ class fabricService{
             // Create a new file system based wallet for managing identities.
             const walletPath = path.join(process.cwd(), 'wallet');
             const wallet = await Wallets.newFileSystemWallet(walletPath);
-            console.log(`Wallet path: ${walletPath}`);
 
             // Check to see if we've already enrolled the user.
             const identity = await wallet.get('appUser');
@@ -175,7 +172,6 @@ class fabricService{
 
             // Submit the specified transaction.
             const wendu = await contract.evaluateTransaction('GetData', key);
-            console.log(`Transaction has been evaluated, result is: ${wendu.toString()}`);
             return wendu.toString();
 
             // Disconnect from the gateway.
@@ -193,7 +189,6 @@ class fabricService{
             // Create a new file system based wallet for managing identities.
             const walletPath = path.join(process.cwd(), 'wallet');
             const wallet = await Wallets.newFileSystemWallet(walletPath);
-            console.log(`Wallet path: ${walletPath}`);
 
             // Check to see if we've already enrolled the user.
             const identity = await wallet.get('appUser');
@@ -215,7 +210,6 @@ class fabricService{
 
             // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
             const result = await contract.evaluateTransaction('GetHistory', key);
-            console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
             return result.toString();
 
         } catch (error) {
