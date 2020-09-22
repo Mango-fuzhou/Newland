@@ -20,19 +20,19 @@ function createOrg() {
   echo 'NodeOUs:
   Enable: true
   ClientOUIdentifier:
-    Certificate: cacerts/ca-org1-example-com-7054-ca-org1-example-com.pem
+    Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
     OrganizationalUnitIdentifier: client
   MemberOUIdentifier:
-    Certificate: cacerts/ca-org1-example-com-7054-ca-org1-example-com.pem
+    Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
     OrganizationalUnitIdentifier: member
   PeerOUIdentifier:
-    Certificate: cacerts/ca-org1-example-com-7054-ca-org1-example-com.pem
+    Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
     OrganizationalUnitIdentifier: peer
   AdminOUIdentifier:
-    Certificate: cacerts/ca-org1-example-com-7054-ca-org1-example-com.pem
+    Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
     OrganizationalUnitIdentifier: admin
   OrdererOUIdentifier:
-    Certificate: cacerts/ca-org1-example-com-7054-ca-org1-example-com.pem
+    Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
     OrganizationalUnitIdentifier: orderer' >${PWD}/organizations/peerOrganizations/org1.example.com/msp/config.yaml
 
   infoln "Register peer${PEER}"
@@ -117,16 +117,16 @@ function createOrderer() {
   echo 'NodeOUs:
   Enable: true
   ClientOUIdentifier:
-    Certificate: cacerts/ca-example-com-9054-ca-example-com.pem
+    Certificate: cacerts/ca-example-com-${PORT}-ca-example-com.pem
     OrganizationalUnitIdentifier: client
   PeerOUIdentifier:
-    Certificate: cacerts/ca-example-com-9054-ca-example-com.pem
+    Certificate: cacerts/ca-example-com-${PORT}-ca-example-com.pem
     OrganizationalUnitIdentifier: peer
   AdminOUIdentifier:
-    Certificate: cacerts/ca-example-com-9054-ca-example-com.pem
+    Certificate: cacerts/ca-example-com-${PORT}-ca-example-com.pem
     OrganizationalUnitIdentifier: admin
   OrdererOUIdentifier:
-    Certificate: cacerts/ca-example-com-9054-ca-example-com.pem
+    Certificate: cacerts/ca-example-com-${PORT}-ca-example-com.pem
     OrganizationalUnitIdentifier: orderer' >${PWD}/organizations/ordererOrganizations/example.com/msp/config.yaml
 
   infoln "Register orderer"
