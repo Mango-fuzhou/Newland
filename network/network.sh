@@ -369,8 +369,13 @@ function deployCC() {
 
   exit 0
 }
+
 function networkStop() {
-  docker-compose -f $COMPOSE_FILE_BASE -f $COMPOSE_FILE_CA down
+  docker-compose -f $COMPOSE_FILE_BASE -f $COMPOSE_FILE_CA stop
+}
+ 
+function networkStart() {
+  docker-compose -f $COMPOSE_FILE_BASE -f $COMPOSE_FILE_CA start 
 }
  
 
@@ -557,6 +562,8 @@ elif [ "$MODE" == "createChannel" ]; then
   infoln "If network is not up, starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE} ${CRYPTO_MODE}"
 elif [ "$MODE" == "down" ]; then
   infoln "Stopping network"
+elif [ "$MODE" == "start" ]; then
+  infoln "Starting network, nor remove Cers"
 elif [ "$MODE" == "stop" ]; then
   infoln "Stopping network, nor remove Cers"
 elif [ "$MODE" == "restart" ]; then
@@ -580,6 +587,8 @@ elif [ "${MODE}" == "down" ]; then
   networkDown
 elif [ "${MODE}" == "stop" ]; then
   networkStop
+elif [ "${MODE}" == "start" ]; then
+  networkStart
 elif [ "${MODE}" == "restart" ]; then
   networkDown
   networkUp
