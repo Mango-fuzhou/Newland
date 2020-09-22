@@ -17,7 +17,7 @@ function createOrg() {
   fabric-ca-client enroll -u https://admin:adminpw@ca.org1.example.com:${PORT} --caname ca.org1.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/org1/tls-cert.pem
   { set +x; } 2>/dev/null
 
-  echo 'NodeOUs:
+  echo "NodeOUs:
   Enable: true
   ClientOUIdentifier:
     Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
@@ -33,7 +33,7 @@ function createOrg() {
     OrganizationalUnitIdentifier: admin
   OrdererOUIdentifier:
     Certificate: cacerts/ca-org1-example-com-${PORT}-ca-org1-example-com.pem
-    OrganizationalUnitIdentifier: orderer' >${PWD}/organizations/peerOrganizations/org1.example.com/msp/config.yaml
+    OrganizationalUnitIdentifier: orderer" >${PWD}/organizations/peerOrganizations/org1.example.com/msp/config.yaml
 
   infoln "Register peer${PEER}"
   set -x
@@ -114,7 +114,7 @@ function createOrderer() {
   fabric-ca-client enroll -u https://admin:adminpw@ca.example.com:${PORT} --caname ca.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
   { set +x; } 2>/dev/null
 
-  echo 'NodeOUs:
+  echo "NodeOUs:
   Enable: true
   ClientOUIdentifier:
     Certificate: cacerts/ca-example-com-${PORT}-ca-example-com.pem
@@ -127,7 +127,7 @@ function createOrderer() {
     OrganizationalUnitIdentifier: admin
   OrdererOUIdentifier:
     Certificate: cacerts/ca-example-com-${PORT}-ca-example-com.pem
-    OrganizationalUnitIdentifier: orderer' >${PWD}/organizations/ordererOrganizations/example.com/msp/config.yaml
+    OrganizationalUnitIdentifier: orderer" >${PWD}/organizations/ordererOrganizations/example.com/msp/config.yaml
 
   infoln "Register orderer"
   set -x
