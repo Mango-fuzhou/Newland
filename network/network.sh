@@ -237,20 +237,20 @@ function createOrgs() {
 
     infoln "Create Org1 Identities"
 
-    createOrg 0 7054
-    createOrg 1 7054
-    createOrg 2 7054
+    createOrg 0 ${ORGCAPORT}
+    createOrg 1 ${ORGCAPORT}
+    createOrg 2 ${ORGCAPORT} 
 
     infoln "Create Orderer Org Identities"
 
-    createOrderer 9054
+    createOrderer ${CAPORT}
 
   fi
 
   infoln "Generate CCP files for Org1 and Org2"
-  ./organizations/ccp-generate.sh 1 0 7051
-  ./organizations/ccp-generate.sh 1 1 9051
-  ./organizations/ccp-generate.sh 1 2 8051
+  ./organizations/ccp-generate.sh 1 0 ${PEER0PORT}
+  ./organizations/ccp-generate.sh 1 1 ${PEER1PORT}
+  ./organizations/ccp-generate.sh 1 2 ${PEER2PORT}
 }
 
 # Once you create the organization crypto material, you need to create the
@@ -350,7 +350,7 @@ function createChannel() {
   # more to create the channel creation transaction and the anchor peer updates.
   # configtx.yaml is mounted in the cli container, which allows us to use it to
   # create the channel artifacts
- scripts/createChannel.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE 7050
+ scripts/createChannel.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE ${ORDERPORT} 
   if [ $? -ne 0 ]; then
     fatalln "Create channel failed"
   fi

@@ -42,7 +42,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.admin')"
 
         OrdererEndpoints:
-            - orderer.example.com:7050
+            - orderer.example.com:${ORDERPORT}
 
     - &Org1
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -187,7 +187,7 @@ Orderer: &OrdererDefaults
     EtcdRaft:
         Consenters:
         - Host: orderer.example.com
-          Port: 7050
+          Port: ${ORDERPORT}
           ClientTLSCert: ../organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
           ServerTLSCert: ../organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
 
